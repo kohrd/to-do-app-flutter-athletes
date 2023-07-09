@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # to_do_app_athletes
 
 To do app flutter athletes
@@ -14,3 +15,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# to-do-app-flutter-athletes
+to do app flutter athletes
+>>>>>>> d22083e (Initial commit)
