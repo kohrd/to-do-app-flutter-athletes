@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,16 +17,8 @@ class MyApp extends StatelessWidget {
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,),
-      localizationsDelegates: const [
-
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale('en'), // English
-        Locale('es'), // Spanish
-      ],
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
 
 
       home: const FirstWidget(),
@@ -37,15 +29,70 @@ class MyApp extends StatelessWidget {
 
 
 class FirstWidget extends StatelessWidget {
-  const FirstWidget({super.key});
+  const FirstWidget({Key? key}) : super(key: key);
+
+//   @override
+//   State<FirstWidget> createState() => _FirstWidgetState();
+// }
+//
+// class _FirstWidgetState extends State<FirstWidget> {
+  bool checkboxValue = false;
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text("fff", style: TextStyle(color: Colors.red, fontSize: 50),),
+    return  Scaffold(
+      body: ListView(
+        children: [
+          MyListTile(),
+
+          Text(
+            AppLocalizations.of(context).helloWorld,
+            style: const TextStyle(color: Colors.red, fontSize: 50),
+          ),
+          const Text(
+              "wdwd",style:  TextStyle(color: Colors.red, fontSize: 50),
+          )
+
+
+
+        ]
       ),
 
     );
   }
+}
+
+class MyListTile extends StatefulWidget {
+   MyListTile({
+    super.key,
+  });
+
+   bool checkboxValue = false;
+
+  @override
+  State<MyListTile> createState() => _MyListTileState();
+}
+
+
+class _MyListTileState extends State<MyListTile>{
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Checkbox(
+        onChanged: (value) => setState((){
+          widget.checkboxValue = value ?? false;
+        }),
+        value: widget.checkboxValue,
+      ),
+      title: const Text('jakie zadanie'),
+      subtitle: const Text('subtitle Wazne zadanie'),
+      trailing:  const Icon(Icons.train),
+      style: ListTileStyle.list
+
+
+      );
+  }
+
+
 }
