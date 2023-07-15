@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,17 +14,21 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //fffffffeee
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a blue toolbar. Then, without quitting the app,
-        // try changing the seedC567567 (save your changes or press the "hot
-        // reload" button in a Flutter-7).
-        //
-        // Notice that the counter d657o, not just values: Most code changes can be
-        // tested with just a hot reload.
+
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,),
+      localizationsDelegates: const [
+
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en'), // English
+        Locale('es'), // Spanish
+      ],
+
+
       home: const FirstWidget(),
 
     );
@@ -31,14 +36,14 @@ class MyApp extends StatelessWidget {
 }
 
 
-class  FirstWidget extends StatelessWidget {
-  const FirstWidget ({super.key});
+class FirstWidget extends StatelessWidget {
+  const FirstWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  const Scaffold(
+    return const Scaffold(
       body: Center(
-        child: Text("fff", style: TextStyle(color: Colors.red, fontSize: 50), ),
+        child: Text("fff", style: TextStyle(color: Colors.red, fontSize: 50),),
       ),
 
     );
